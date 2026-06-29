@@ -9,7 +9,7 @@ import { StatsStrip } from "@/components/sections/StatsStrip";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { getFeaturedProjects } from "@/content/projects";
 import { site } from "@/content/site";
-import { HeroHome } from "@/components/sections/HeroHome";
+import { BuildSequenceHero } from "@/components/sections/BuildSequenceHero";
 import { Marquee } from "@/components/sections/Marquee";
 
 export const metadata: Metadata = {
@@ -44,7 +44,7 @@ export default function Home() {
 
   return (
     <>
-      <HeroHome />
+      <BuildSequenceHero />
       <Marquee />
 
       {/* Intro */}
