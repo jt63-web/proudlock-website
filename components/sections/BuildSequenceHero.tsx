@@ -6,7 +6,6 @@ import {
   useScroll,
   useTransform,
   useMotionValueEvent,
-  easeInOut,
   type MotionValue,
 } from "framer-motion";
 import Image from "next/image";
@@ -80,7 +79,7 @@ function PhaseImage({
   progress: MotionValue<number>;
 }) {
   const { input, output } = getOpacityRange(index);
-  const opacity = useTransform(progress, input, output, { ease: easeInOut });
+  const opacity = useTransform(progress, input, output);
 
   const start = index / n;
   const end = (index + 1) / n;
