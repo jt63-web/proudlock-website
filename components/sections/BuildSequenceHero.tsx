@@ -152,6 +152,9 @@ function ScrollHint({ progress }: { progress: MotionValue<number> }) {
   );
 }
 
+// Phases run over the first 75% of scroll — last 25% is dwell on final image
+const PHASE_END = 0.75;
+
 export function BuildSequenceHero() {
   const containerRef = useRef<HTMLDivElement>(null);
   const { scrollYProgress } = useScroll({
@@ -159,28 +162,34 @@ export function BuildSequenceHero() {
     offset: ["start start", "end end"],
   });
 
+  // Map raw scroll 0→PHASE_END to phase progress 0→1, clamped at 1
+  const phaseProgress = useTransform(scrollYProgress, [0, PHASE_END], [0, 1], { clamp: true });
+
+  // Hero text appears as last phase comes in, stays through the dwell
   const heroOpacity = useTransform(
     scrollYProgress,
-    [(n - 1) / n - 0.04, (n - 1) / n + 0.06, 1],
-    [0, 1, 1]
+    [PHASE_END - 0.08, PHASE_END + 0.04],
+    [0, 1],
+    { clamp: true }
   );
   const heroY = useTransform(
     scrollYProgress,
-    [(n - 1) / n - 0.04, (n - 1) / n + 0.1],
-    [24, 0]
+    [PHASE_END - 0.08, PHASE_END + 0.04],
+    [24, 0],
+    { clamp: true }
   );
 
   return (
-    <div ref={containerRef} className="relative h-[700vh]">
+    <div ref={containerRef} className="relative h-[900vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-[#0E0F11]">
 
-        {/* Phase images */}
+        {/* Phase images — driven by phaseProgress (clamped 0→1) */}
         {phases.map((phase, i) => (
           <PhaseImage
             key={phase.src}
             src={phase.src}
             index={i}
-            progress={scrollYProgress}
+            progress={phaseProgress}
           />
         ))}
 
@@ -188,7 +197,7 @@ export function BuildSequenceHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/85 via-[#0E0F11]/15 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0E0F11]/50 via-transparent to-transparent pointer-events-none" />
 
-        {/* Final hero text — appears on phase 6 */}
+        {/* Final hero text — appears on phase 6, stays through dwell */}
         <motion.div
           className="absolute inset-0 flex flex-col justify-end pb-20 md:pb-28 pointer-events-none"
           style={{ opacity: heroOpacity, y: heroY }}
@@ -212,8 +221,8 @@ export function BuildSequenceHero() {
           </div>
         </motion.div>
 
-        {/* UI chrome */}
-        <PhaseCounter progress={scrollYProgress} />
+        {/* UI chrome — phase counter uses phaseProgress, scroll hint uses raw */}
+        <PhaseCounter progress={phaseProgress} />
         <ProgressBar progress={scrollYProgress} />
         <ScrollHint progress={scrollYProgress} />
       </div>
