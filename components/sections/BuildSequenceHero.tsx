@@ -45,7 +45,7 @@ const phases = [
 ];
 
 const n = phases.length;
-const CROSSFADE = 0.09;
+const CROSSFADE = 0.07;
 
 function getOpacityRange(index: number): { input: number[]; output: number[] } {
   const start = index / n;
