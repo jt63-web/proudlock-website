@@ -153,7 +153,7 @@ function ScrollHint({ progress }: { progress: MotionValue<number> }) {
 }
 
 // Phases run over the first 75% of scroll — last 25% is dwell on final image
-const PHASE_END = 0.75;
+const PHASE_END = 0.58;
 
 export function BuildSequenceHero() {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -180,7 +180,7 @@ export function BuildSequenceHero() {
   );
 
   return (
-    <div ref={containerRef} className="relative h-[900vh]">
+    <div ref={containerRef} className="relative h-[1100vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-[#0E0F11]">
 
         {/* Phase images — driven by phaseProgress (clamped 0→1) */}
