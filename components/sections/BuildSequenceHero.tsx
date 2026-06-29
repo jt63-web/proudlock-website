@@ -13,27 +13,27 @@ import { Button } from "@/components/ui/Button";
 
 const phases = [
   {
-    src: "/images/build-sequence/phase-1.jpg",
+    src: "/images/build-sequence/phase-1.png",
     label: "Site cleared",
     sub: "Red Queensland clay — day one",
   },
   {
-    src: "/images/build-sequence/phase-2.jpg",
+    src: "/images/build-sequence/phase-2.png",
     label: "Slab poured",
     sub: "Reinforced concrete ground slab",
   },
   {
-    src: "/images/build-sequence/phase-3.jpg",
+    src: "/images/build-sequence/phase-3.png",
     label: "Panels cast",
     sub: "Tilt-up precast concrete on slab",
   },
   {
-    src: "/images/build-sequence/phase-4.jpg",
+    src: "/images/build-sequence/phase-4.png",
     label: "Panels erected",
     sub: "Mobile crane tilt operation",
   },
   {
-    src: "/images/build-sequence/phase-5.jpg",
+    src: "/images/build-sequence/phase-5.png",
     label: "Structure complete",
     sub: "Roof, cladding and glazing installed",
   },
