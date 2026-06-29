@@ -24,7 +24,7 @@ export function ProjectCard({ project, className, priority }: ProjectCardProps) 
       aria-label={`View project: ${project.title}`}
     >
       {/* Image */}
-      <div className="aspect-[4/5] overflow-hidden">
+      <div className="relative aspect-[4/5] overflow-hidden">
         <Image
           src={project.coverImage}
           alt={project.title}
@@ -33,23 +33,34 @@ export function ProjectCard({ project, className, priority }: ProjectCardProps) 
           className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
           priority={priority}
         />
-        {/* Overlay */}
-        <div className="absolute inset-0 bg-[#0E0F11]/20 transition-opacity duration-300 group-hover:bg-[#0E0F11]/50" />
+
+        {/* Default gradient — fades out on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/75 via-transparent to-transparent transition-opacity duration-400 group-hover:opacity-0" />
+
+        {/* Hover overlay — fades in */}
+        <div className="absolute inset-0 bg-[#0E0F11]/55 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+
+        {/* Arrow icon — top right, appears on hover */}
+        <div className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center border border-[#C4A96B]/0 bg-[#C4A96B]/0 opacity-0 transition-all duration-300 group-hover:border-[#C4A96B]/60 group-hover:bg-[#C4A96B]/10 group-hover:opacity-100">
+          <svg className="size-4 text-[#C4A96B] transition-transform duration-300 group-hover:translate-x-0.5 group-hover:-translate-y-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M7 17L17 7M17 7H7M17 7v10" />
+          </svg>
+        </div>
       </div>
 
-      {/* Meta — slides up on hover */}
-      <div className="absolute bottom-0 left-0 right-0 translate-y-2 p-6 transition-transform duration-500 ease-out group-hover:translate-y-0">
-        <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B] opacity-0 transition-all duration-300 group-hover:opacity-100">
-          {sectorLabel[project.sector]} — {project.suburb}
-        </p>
-        <h3 className="font-heading text-lg font-bold leading-tight text-white">
+      {/* Default label — visible when not hovered */}
+      <div className="absolute bottom-0 left-0 right-0 p-6 transition-all duration-300 group-hover:opacity-0 group-hover:translate-y-1">
+        <h3 className="font-heading text-lg font-bold leading-tight text-white drop-shadow-lg">
           {project.title}
         </h3>
       </div>
 
-      {/* Location badge — always visible */}
-      <div className="absolute left-0 bottom-0 right-0 p-6 group-hover:opacity-0 transition-opacity duration-200">
-        <h3 className="font-heading text-lg font-bold leading-tight text-white drop-shadow-lg">
+      {/* Hover label — slides up, invisible by default */}
+      <div className="absolute bottom-0 left-0 right-0 translate-y-3 p-6 opacity-0 transition-all duration-400 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+        <p className="mb-1.5 font-heading text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C4A96B]">
+          {sectorLabel[project.sector]} — {project.suburb}
+        </p>
+        <h3 className="font-heading text-lg font-bold leading-tight text-white">
           {project.title}
         </h3>
       </div>

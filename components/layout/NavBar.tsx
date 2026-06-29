@@ -12,7 +12,6 @@ const navLinks = [
   { href: "/interior-design", label: "Interior Design" },
   { href: "/projects", label: "Projects" },
   { href: "/about", label: "About" },
-  { href: "/contact", label: "Contact" },
 ];
 
 export function NavBar() {
@@ -50,29 +49,32 @@ export function NavBar() {
               alt="Proudlock"
               width={56}
               height={56}
-              className="h-12 w-12 object-contain"
+              className="h-12 w-12 object-contain transition-transform duration-500 hover:rotate-[15deg] hover:scale-110"
               priority
             />
           </Link>
 
           {/* Desktop nav */}
           <nav className="hidden items-center gap-8 lg:flex" aria-label="Main navigation">
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className={`font-heading text-xs font-semibold uppercase tracking-[0.15em] transition-colors duration-150 ${
-                  pathname === link.href
-                    ? "text-[#C4A96B]"
-                    : "text-white/80 hover:text-[#C4A96B]"
-                }`}
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = pathname === link.href;
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className={`relative font-heading text-xs font-semibold uppercase tracking-[0.15em] transition-colors duration-200 after:absolute after:-bottom-0.5 after:left-0 after:h-px after:bg-[#C4A96B] after:transition-all after:duration-300 ${
+                    isActive
+                      ? "text-[#C4A96B] after:w-full"
+                      : "text-white/80 hover:text-[#C4A96B] after:w-0 hover:after:w-full"
+                  }`}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
             <Link
               href="/contact"
-              className="ml-4 border border-[#C4A96B] px-6 py-2.5 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B] transition-all duration-200 hover:bg-[#C4A96B] hover:text-[#0E0F11]"
+              className="ml-4 border border-[#C4A96B] px-6 py-2.5 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B] transition-all duration-200 hover:bg-[#C4A96B] hover:text-[#0E0F11] active:scale-[0.97]"
             >
               Get in touch
             </Link>
@@ -129,8 +131,9 @@ export function NavBar() {
               ))}
             </nav>
             <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-body text-sm text-white/40">20 Davrod St, Robertson QLD 4109</p>
-              <p className="mt-1 font-body text-sm text-white/40">info@proudlock.com.au</p>
+              <p className="font-body text-sm text-white/40">4/6 Timms Court, Woodridge QLD 4114</p>
+              <p className="mt-0.5 font-body text-xs text-white/25">By appointment only</p>
+              <p className="mt-2 font-body text-sm text-white/40">cris@proudlock.com.au</p>
             </div>
           </motion.div>
         )}

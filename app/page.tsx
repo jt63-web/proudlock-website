@@ -4,8 +4,8 @@ import Link from "next/link";
 import { Container } from "@/components/ui/Container";
 import { Button } from "@/components/ui/Button";
 import { Eyebrow } from "@/components/ui/Eyebrow";
-import { StatBlock } from "@/components/ui/StatBlock";
 import { AnimateIn } from "@/components/sections/AnimateIn";
+import { StatsStrip } from "@/components/sections/StatsStrip";
 import { ProjectCard } from "@/components/sections/ProjectCard";
 import { getFeaturedProjects } from "@/content/projects";
 import { site } from "@/content/site";
@@ -143,17 +143,13 @@ export default function Home() {
       {/* Stats strip */}
       <section className="bg-[#3A5248] py-20">
         <Container>
-          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1fr] items-center">
-            <AnimateIn>
-              <Eyebrow className="mb-6">By the numbers</Eyebrow>
-              <h2 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
-                A decade of delivery<br />across SEQ.
-              </h2>
-            </AnimateIn>
-            <AnimateIn delay={0.1}>
-              <StatBlock stats={site.stats} light />
-            </AnimateIn>
-          </div>
+          <AnimateIn>
+            <Eyebrow className="mb-4">By the numbers</Eyebrow>
+            <h2 className="mb-12 font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
+              A decade of delivery<br />across SEQ.
+            </h2>
+          </AnimateIn>
+          <StatsStrip stats={site.stats} />
         </Container>
       </section>
 
