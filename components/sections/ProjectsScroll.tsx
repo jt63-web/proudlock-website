@@ -43,18 +43,19 @@ export function ProjectsScroll({ projects }: { projects: Project[] }) {
   return (
     <div
       ref={trackRef}
-      className="overflow-x-hidden cursor-grab active:cursor-grabbing select-none"
+      className="overflow-hidden cursor-grab active:cursor-grabbing select-none"
       onMouseDown={onMouseDown}
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
     >
       <div
-        className="flex gap-3"
+        className="flex gap-3 py-3"
         style={{
           width: "max-content",
           animation: `marquee-scroll 60s linear infinite`,
           animationPlayState: paused ? "paused" : "running",
+          willChange: "transform",
         }}
         onMouseEnter={() => setPaused(true)}
         onMouseLeave={() => setPaused(false)}
@@ -64,7 +65,7 @@ export function ProjectsScroll({ projects }: { projects: Project[] }) {
             key={`${project.slug}-${i}`}
             href={`/projects/${project.slug}`}
             draggable={false}
-            className="group relative flex-shrink-0 overflow-hidden"
+            className="group relative flex-shrink-0 overflow-hidden isolate"
             style={{ width: "300px", height: "420px" }}
           >
             <Image
@@ -72,7 +73,7 @@ export function ProjectsScroll({ projects }: { projects: Project[] }) {
               alt={project.title}
               fill
               sizes="300px"
-              className="object-cover transition-transform duration-700 ease-out group-hover:scale-[1.04]"
+              className="object-cover transition-all duration-700 ease-out group-hover:scale-[1.03] group-hover:brightness-110"
               draggable={false}
             />
             <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/90 via-[#0E0F11]/20 to-transparent" />
