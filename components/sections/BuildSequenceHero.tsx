@@ -6,6 +6,7 @@ import {
   useScroll,
   useTransform,
   useMotionValueEvent,
+  easeInOut,
   type MotionValue,
 } from "framer-motion";
 import Image from "next/image";
@@ -45,7 +46,7 @@ const phases = [
 ];
 
 const n = phases.length;
-const CROSSFADE = 0.05;
+const CROSSFADE = 0.09;
 
 function getOpacityRange(index: number): { input: number[]; output: number[] } {
   const start = index / n;
@@ -79,7 +80,7 @@ function PhaseImage({
   progress: MotionValue<number>;
 }) {
   const { input, output } = getOpacityRange(index);
-  const opacity = useTransform(progress, input, output);
+  const opacity = useTransform(progress, input, output, { ease: easeInOut });
 
   const start = index / n;
   const end = (index + 1) / n;
@@ -171,7 +172,7 @@ export function BuildSequenceHero() {
   );
 
   return (
-    <div ref={containerRef} className="relative h-[550vh]">
+    <div ref={containerRef} className="relative h-[700vh]">
       <div className="sticky top-0 h-screen overflow-hidden bg-[#0E0F11]">
 
         {/* Phase images */}
