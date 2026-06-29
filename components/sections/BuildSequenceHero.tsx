@@ -207,9 +207,11 @@ export function BuildSequenceHero() {
               Est. 2014 — Southeast Queensland
             </p>
             <h1 className="mb-6 max-w-4xl font-heading text-6xl font-bold leading-[1.0] tracking-[-0.02em] text-white md:text-8xl lg:text-[7rem]">
-              Built across<br />
-              Southeast<br />
-              Queensland.
+              Built{" "}
+              <span style={{ color: "transparent", WebkitTextStroke: "1.5px rgba(255,255,255,0.35)" }}>
+                across
+              </span>
+              <br />Southeast<br />Queensland.
             </h1>
             <p className="mb-10 max-w-md font-body text-lg text-white/60">
               Partners in building your vision.

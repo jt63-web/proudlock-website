@@ -56,3 +56,9 @@ body {
   background: var(--color-gold);
   color: var(--color-ink);
 }
+
+/* Horizontal project marquee */
+@keyframes marquee-scroll {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
