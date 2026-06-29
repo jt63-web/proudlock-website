@@ -101,40 +101,6 @@ function PhaseImage({
   );
 }
 
-function PhaseLabel({
-  index,
-  progress,
-  label,
-  sub,
-}: {
-  index: number;
-  progress: MotionValue<number>;
-  label: string;
-  sub: string;
-}) {
-  const { input, output } = getOpacityRange(index);
-  const opacity = useTransform(progress, input, output);
-
-  const start = index / n;
-  const end = (index + 1) / n;
-  const mid = (start + end) / 2;
-  const y = useTransform(progress, [start, mid, end], [12, 0, -8]);
-
-  return (
-    <motion.div
-      className="absolute bottom-20 left-6 md:left-16 pointer-events-none"
-      style={{ opacity, y }}
-    >
-      <p className="font-heading text-[10px] uppercase tracking-[0.25em] text-[#C4A96B] mb-1.5">
-        {sub}
-      </p>
-      <p className="font-heading text-xl font-semibold text-white/90 md:text-2xl">
-        {label}
-      </p>
-    </motion.div>
-  );
-}
-
 function PhaseCounter({ progress }: { progress: MotionValue<number> }) {
   const [current, setCurrent] = useState(1);
 
@@ -222,17 +188,6 @@ export function BuildSequenceHero() {
         <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/85 via-[#0E0F11]/15 to-transparent pointer-events-none" />
         <div className="absolute inset-0 bg-gradient-to-r from-[#0E0F11]/50 via-transparent to-transparent pointer-events-none" />
 
-        {/* Phase labels for phases 1–5 */}
-        {phases.slice(0, -1).map((phase, i) => (
-          <PhaseLabel
-            key={phase.src}
-            index={i}
-            progress={scrollYProgress}
-            label={phase.label}
-            sub={phase.sub}
-          />
-        ))}
-
         {/* Final hero text — appears on phase 6 */}
         <motion.div
           className="absolute inset-0 flex flex-col justify-end pb-20 md:pb-28 pointer-events-none"
@@ -242,10 +197,7 @@ export function BuildSequenceHero() {
             <p className="mb-4 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-[#C4A96B]">
               Est. 2014 — Southeast Queensland
             </p>
-            <h1
-              className="mb-6 max-w-4xl font-bold leading-[1.0] text-white text-6xl md:text-8xl lg:text-[7rem]"
-              style={{ fontFamily: "var(--font-cormorant)", fontWeight: 300, letterSpacing: "-0.02em" }}
-            >
+            <h1 className="mb-6 max-w-4xl font-heading text-6xl font-bold leading-[1.0] tracking-[-0.02em] text-white md:text-8xl lg:text-[7rem]">
               Built across<br />
               Southeast<br />
               Queensland.
