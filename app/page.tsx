@@ -1,103 +1,180 @@
+import type { Metadata } from "next";
 import Image from "next/image";
+import Link from "next/link";
+import { Container } from "@/components/ui/Container";
+import { Button } from "@/components/ui/Button";
+import { Eyebrow } from "@/components/ui/Eyebrow";
+import { StatBlock } from "@/components/ui/StatBlock";
+import { AnimateIn } from "@/components/sections/AnimateIn";
+import { ProjectCard } from "@/components/sections/ProjectCard";
+import { getFeaturedProjects } from "@/content/projects";
+import { site } from "@/content/site";
+import { HeroHome } from "@/components/sections/HeroHome";
+import { Marquee } from "@/components/sections/Marquee";
+
+export const metadata: Metadata = {
+  title: "Proudlock — Commercial & Residential Construction, Southeast Queensland",
+  description:
+    "Built across Southeast Queensland since 2014. Commercial warehouses, industrial fitouts, custom homes, and interior design.",
+};
+
+const services = [
+  {
+    title: "Commercial Construction",
+    description: "Warehouses, industrial facilities, office fitouts, refurbishments, hard landscaping.",
+    href: "/commercial",
+    image: "/images/hero/warehouse-1.jpg",
+  },
+  {
+    title: "Residential Construction",
+    description: "Custom homes, apartment projects, renovations — built to endure.",
+    href: "/residential",
+    image: "/images/projects/custom-homes/1.jpg",
+  },
+  {
+    title: "Interior Design & Architect",
+    description: "Design-led interiors for commercial and residential spaces.",
+    href: "/interior-design",
+    image: "/images/projects/interior-design/1.jpg",
+  },
+];
 
 export default function Home() {
-  return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  const featured = getFeaturedProjects().slice(0, 6);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
+  return (
+    <>
+      <HeroHome />
+      <Marquee />
+
+      {/* Intro */}
+      <section className="bg-[#F5F2EC] py-24 md:py-32">
+        <Container>
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1.2fr] lg:gap-24 items-end">
+            <AnimateIn>
+              <Eyebrow className="mb-6">Southeast Queensland</Eyebrow>
+              <h2 className="font-heading text-5xl font-bold leading-[1.05] text-[#0E0F11] md:text-6xl">
+                Industrial scale.<br />
+                Editorial detail.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <p className="font-body text-lg leading-relaxed text-[#0E0F11]/70">
+                Proudlock has been building across Southeast Queensland since 2014. We deliver commercial
+                warehouses, industrial fitouts, custom homes, and interior design — at every scale, from
+                a single retail fitout to a 7,600 sqm TGA-approved manufacturing facility.
+              </p>
+              <p className="mt-4 font-body text-lg leading-relaxed text-[#0E0F11]/70">
+                Our work is measured in square metres, not promises.
+              </p>
+              <Button href="/about" variant="outline" className="mt-10 border-[#3A5248] text-[#3A5248] hover:bg-[#3A5248] hover:text-white">
+                About Proudlock
+              </Button>
+            </AnimateIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* Services */}
+      <section className="bg-[#0E0F11] py-24 md:py-32">
+        <Container>
+          <AnimateIn>
+            <Eyebrow className="mb-6">What we build</Eyebrow>
+            <h2 className="mb-16 font-heading text-4xl font-bold text-white md:text-5xl">
+              Three disciplines.<br />One team.
+            </h2>
+          </AnimateIn>
+          <div className="grid grid-cols-1 gap-px bg-white/10 md:grid-cols-3">
+            {services.map((service, i) => (
+              <AnimateIn key={service.title} delay={i * 0.08}>
+                <Link href={service.href} className="group relative flex flex-col overflow-hidden bg-[#0E0F11]">
+                  <div className="relative aspect-[4/3] overflow-hidden">
+                    <Image
+                      src={service.image}
+                      alt={service.title}
+                      fill
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                      className="object-cover opacity-70 transition-all duration-700 group-hover:scale-[1.04] group-hover:opacity-90"
+                    />
+                  </div>
+                  <div className="flex flex-1 flex-col justify-between p-8">
+                    <div>
+                      <h3 className="mb-3 font-heading text-2xl font-bold text-white">{service.title}</h3>
+                      <p className="font-body text-sm leading-relaxed text-white/50">{service.description}</p>
+                    </div>
+                    <span className="mt-6 inline-flex items-center gap-2 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B] transition-all duration-200 group-hover:gap-3">
+                      Explore
+                      <svg className="size-3.5 transition-transform duration-200 group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                      </svg>
+                    </span>
+                  </div>
+                </Link>
+              </AnimateIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Featured projects */}
+      <section className="bg-[#F5F2EC] py-24 md:py-32">
+        <Container>
+          <div className="mb-16 flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
+            <AnimateIn>
+              <Eyebrow className="mb-4">Portfolio</Eyebrow>
+              <h2 className="font-heading text-4xl font-bold text-[#0E0F11] md:text-5xl">Selected work</h2>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <Button href="/projects" variant="outline" className="border-[#3A5248] text-[#3A5248] hover:bg-[#3A5248] hover:text-white self-start sm:self-auto">
+                All projects
+              </Button>
+            </AnimateIn>
+          </div>
+          <div className="grid grid-cols-1 gap-px bg-[#C4A96B]/20 sm:grid-cols-2 lg:grid-cols-3">
+            {featured.map((project, i) => (
+              <AnimateIn key={project.slug} delay={i * 0.06}>
+                <ProjectCard project={project} priority={i < 3} />
+              </AnimateIn>
+            ))}
+          </div>
+        </Container>
+      </section>
+
+      {/* Stats strip */}
+      <section className="bg-[#3A5248] py-20">
+        <Container>
+          <div className="grid grid-cols-1 gap-16 lg:grid-cols-[1fr_1fr] items-center">
+            <AnimateIn>
+              <Eyebrow className="mb-6">By the numbers</Eyebrow>
+              <h2 className="font-heading text-4xl font-bold leading-tight text-white md:text-5xl">
+                A decade of delivery<br />across SEQ.
+              </h2>
+            </AnimateIn>
+            <AnimateIn delay={0.1}>
+              <StatBlock stats={site.stats} light />
+            </AnimateIn>
+          </div>
+        </Container>
+      </section>
+
+      {/* CTA band */}
+      <section className="bg-[#0E0F11] py-24 md:py-32">
+        <Container>
+          <div className="max-w-2xl">
+            <AnimateIn>
+              <Eyebrow className="mb-6">Start a conversation</Eyebrow>
+              <h2 className="mb-6 font-heading text-5xl font-bold leading-tight text-white md:text-6xl">
+                Have a project<br />in mind?
+              </h2>
+              <p className="mb-10 font-body text-lg text-white/60">
+                Commercial, residential, or fitout — tell us what you&apos;re building and we&apos;ll tell you
+                how we can help.
+              </p>
+              <Button href="/contact">Get in touch</Button>
+            </AnimateIn>
+          </div>
+        </Container>
+      </section>
+    </>
   );
 }

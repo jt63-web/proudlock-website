@@ -1,36 +1,96 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Proudlock Website
 
-## Getting Started
+Commercial and residential construction — Southeast Queensland.
 
-First, run the development server:
+## Running locally
 
 ```bash
+cd proudlock-web
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Styleguide (dev only): [http://localhost:3000/styleguide](http://localhost:3000/styleguide)
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Editing content
 
-## Learn More
+All content lives in typed data files — no CMS needed.
 
-To learn more about Next.js, take a look at the following resources:
+### Site details (address, phone, stats, licences)
+Edit [`/content/site.ts`](./content/site.ts)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### Projects
+Edit [`/content/projects.ts`](./content/projects.ts)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To **add a new project**:
+1. Add a new object to the `projects` array in `content/projects.ts`
+2. Copy images to `/public/images/projects/<your-slug>/` named `1.jpg`, `2.jpg`, etc.
+3. Set `featured: true` to show it on the homepage
 
-## Deploy on Vercel
+Available sectors: `"commercial" | "residential" | "fitout" | "interior-design"`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Swapping images
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+Images live in `/public/images/`:
+
+| Folder | Used for |
+|--------|----------|
+| `hero/` | Homepage hero background (warehouse-1.jpg is the default) |
+| `logos/` | Logo files |
+| `projects/<slug>/` | Project gallery images (1.jpg, 2.jpg, …) |
+
+Replace any file with the same filename to update it. Supported formats: JPEG, PNG, WebP, AVIF.
+
+## Contact form email
+
+The form endpoint is at `/app/api/contact/route.ts`. It validates submissions but currently only logs them.
+
+To wire up email delivery with [Resend](https://resend.com):
+
+1. `npm install resend`
+2. Add `RESEND_API_KEY=re_...` to `.env.local`
+3. Uncomment the Resend block in `app/api/contact/route.ts`
+
+## Deploying to Vercel
+
+### First deploy
+
+1. Push this repo to GitHub (instructions below)
+2. Go to [vercel.com](https://vercel.com) → New Project → Import from GitHub
+3. Select the repo — Vercel auto-detects Next.js, no config needed
+4. Click Deploy
+
+### Subsequent deploys
+
+Every push to `main` triggers an automatic redeploy.
+
+### Environment variables
+
+Add `RESEND_API_KEY` in Vercel → Project Settings → Environment Variables once you wire up email.
+
+## GitHub setup (first time)
+
+Run these commands inside the `proudlock-web` folder:
+
+```bash
+git init
+git add .
+git commit -m "Initial Proudlock website"
+git remote add origin https://github.com/jt63-web/proudlock-website.git
+git branch -M main
+git push -u origin main
+```
+
+Then import from GitHub in Vercel.
+
+## Tech stack
+
+- **Framework**: Next.js 15 (App Router, TypeScript)
+- **Styling**: Tailwind CSS v4
+- **Animation**: Framer Motion
+- **Forms**: React Hook Form + Zod
+- **Fonts**: DM Sans (headings) + Inter (body) via Google Fonts
+- **Images**: next/image with AVIF/WebP optimisation
+- **Hosting**: Vercel
