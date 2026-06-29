@@ -4,19 +4,24 @@ export const site = {
   description:
     "Commercial and residential construction across Southeast Queensland. Established 2014.",
   address: {
-    street: "20 Davrod St",
-    suburb: "Robertson",
+    street: "4/6 Timms Court",
+    suburb: "Woodridge",
     state: "QLD",
-    postcode: "4109",
-    full: "20 Davrod St, Robertson QLD 4109",
+    postcode: "4114",
+    full: "4/6 Timms Court, Woodridge QLD 4114",
+    note: "By appointment only",
     googleMapsUrl:
-      "https://maps.google.com/?q=20+Davrod+St+Robertson+QLD+4109",
-    lat: -27.5503,
-    lng: 153.0281,
+      "https://maps.google.com/?q=6+Timms+Court+Woodridge+QLD+4114",
+    lat: -27.6256,
+    lng: 153.1089,
   },
   contact: {
-    phone: "+61 7 3123 4567",
-    email: "info@proudlock.com.au",
+    phone: "+61 402 111 022",
+    email: "cris@proudlock.com.au",
+  },
+  director: {
+    name: "Cristian Telecican",
+    title: "Director",
   },
   licences: {
     acn: "167 711 284",

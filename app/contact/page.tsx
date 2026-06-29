@@ -37,34 +37,34 @@ export default function ContactPage() {
                 </p>
                 <div className="flex flex-col gap-6">
                   <div>
-                    <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]">Address</p>
-                    <address className="not-italic font-body text-sm text-[#0E0F11]/70">{site.address.full}</address>
-                  </div>
-                  <div>
-                    <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]">Email</p>
-                    <a href={`mailto:${site.contact.email}`} className="font-body text-sm text-[#0E0F11]/70 hover:text-[#3A5248]">
+                    <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]">Contact</p>
+                    <p className="font-body text-sm font-medium text-[#0E0F11]">{site.director.name}</p>
+                    <p className="font-body text-xs text-[#0E0F11]/50 mb-2">{site.director.title}</p>
+                    <a href={`mailto:${site.contact.email}`} className="block font-body text-sm text-[#0E0F11]/70 hover:text-[#3A5248]">
                       {site.contact.email}
                     </a>
-                  </div>
-                  <div>
-                    <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]">Phone</p>
-                    <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="font-body text-sm text-[#0E0F11]/70 hover:text-[#3A5248]">
+                    <a href={`tel:${site.contact.phone.replace(/\s/g, "")}`} className="block font-body text-sm text-[#0E0F11]/70 hover:text-[#3A5248]">
                       {site.contact.phone}
                     </a>
+                  </div>
+                  <div>
+                    <p className="mb-1 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]">Office</p>
+                    <address className="not-italic font-body text-sm text-[#0E0F11]/70">{site.address.full}</address>
+                    <p className="mt-1 font-body text-xs text-[#0E0F11]/40">{site.address.note}</p>
                   </div>
                 </div>
 
                 {/* Map */}
                 <div className="mt-10 overflow-hidden">
                   <iframe
-                    src="https://maps.google.com/maps?q=20+Davrod+St+Robertson+QLD+4109&output=embed"
+                    src="https://maps.google.com/maps?q=4%2F6+Timms+Court+Woodridge+QLD+4114&output=embed"
                     width="100%"
                     height="240"
                     className="border-0 grayscale"
                     loading="lazy"
                     referrerPolicy="no-referrer-when-downgrade"
                     title="Proudlock office location"
-                    aria-label="Map showing Proudlock office at 20 Davrod St, Robertson QLD 4109"
+                    aria-label="Map showing Proudlock office at 4/6 Timms Court, Woodridge QLD 4114"
                   />
                 </div>
               </div>

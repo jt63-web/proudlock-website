@@ -45,8 +45,13 @@ export function Footer() {
             </p>
             <address className="mt-6 not-italic font-body text-sm text-white/40">
               {site.address.full}
+              <span className="block text-white/25 text-xs mt-0.5">{site.address.note}</span>
             </address>
-            <p className="mt-1 font-body text-sm text-white/40">{site.contact.email}</p>
+            <p className="mt-3 font-body text-sm text-white/40">
+              {site.director.name} — {site.director.title}
+            </p>
+            <p className="font-body text-sm text-white/40">{site.contact.email}</p>
+            <p className="font-body text-sm text-white/40">{site.contact.phone}</p>
           </div>
 
           {/* Nav columns */}
