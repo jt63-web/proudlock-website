@@ -208,7 +208,7 @@ export function BuildSequenceHero() {
             </p>
             <h1 className="mb-6 max-w-4xl font-heading text-6xl font-bold leading-[1.0] tracking-[-0.02em] text-white md:text-8xl lg:text-[7rem]">
               Built{" "}
-              <span style={{ color: "transparent", WebkitTextStroke: "2px #C4A96B" }}>
+              <span style={{ color: "#C4A96B" }}>
                 across
               </span>
               <br />Southeast<br />Queensland.
