@@ -8,7 +8,7 @@ import { StatsStrip } from "@/components/sections/StatsStrip";
 import { ProjectsScroll } from "@/components/sections/ProjectsScroll";
 import { getFeaturedProjects } from "@/content/projects";
 import { site } from "@/content/site";
-import { BuildSequenceHero } from "@/components/sections/BuildSequenceHero";
+import { VideoHero } from "@/components/sections/VideoHero";
 import { Marquee } from "@/components/sections/Marquee";
 
 export const metadata: Metadata = {
@@ -43,7 +43,7 @@ export default function Home() {
 
   return (
     <>
-      <BuildSequenceHero />
+      <VideoHero />
       <Marquee />
 
       {/* Intro — split two-column */}
