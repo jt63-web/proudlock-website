@@ -10,7 +10,7 @@ const schema = z.object({
   message: z.string().min(20),
 });
 
-const TO_EMAIL = "cris@proudlock.com.au";
+const TO_EMAIL = process.env.CONTACT_TO_EMAIL ?? "cris@proudlock.com.au";
 
 const projectTypeLabel: Record<string, string> = {
   commercial: "Commercial Construction",
