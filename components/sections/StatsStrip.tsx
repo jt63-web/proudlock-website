@@ -16,7 +16,7 @@ export function StatsStrip({ stats }: { stats: readonly Stat[] }) {
       {stats.map((stat, i) => (
         <AnimateIn key={stat.label} delay={i * 0.1}>
           <motion.div
-            className="group flex flex-col gap-2 bg-[#0E0F11] p-8 transition-colors duration-300 hover:bg-[#3A5248]/40 cursor-default"
+            className="group flex flex-col gap-2 bg-[#0E0F11] p-5 md:p-8 transition-colors duration-300 hover:bg-[#3A5248]/40 cursor-default"
             whileHover={{ y: -2 }}
             transition={{ duration: 0.2 }}
           >

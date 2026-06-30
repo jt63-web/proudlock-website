@@ -45,7 +45,7 @@ export function VideoHero() {
             initial={{ opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 1.1, delay: 3.2, ease }}
-            className="mb-7 font-heading text-6xl font-bold leading-[1.0] tracking-[-0.025em] text-white md:text-8xl lg:text-[7.5rem]"
+            className="mb-7 font-heading text-5xl font-bold leading-[1.0] tracking-[-0.025em] text-white sm:text-6xl md:text-8xl lg:text-[7.5rem]"
           >
             Built{" "}
             <span style={{ color: "#C4A96B" }}>across</span>

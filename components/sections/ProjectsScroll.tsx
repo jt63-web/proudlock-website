@@ -40,6 +40,15 @@ export function ProjectsScroll({ projects }: { projects: Project[] }) {
     setPaused(false);
   };
 
+  const onTouchStart = (e: React.TouchEvent) => {
+    setPaused(true);
+    dragStart.current = e.touches[0].clientX;
+  };
+
+  const onTouchEnd = () => {
+    setPaused(false);
+  };
+
   return (
     <div
       ref={trackRef}
@@ -48,6 +57,8 @@ export function ProjectsScroll({ projects }: { projects: Project[] }) {
       onMouseMove={onMouseMove}
       onMouseUp={onMouseUp}
       onMouseLeave={onMouseUp}
+      onTouchStart={onTouchStart}
+      onTouchEnd={onTouchEnd}
     >
       <div
         className="flex gap-3 py-3"
