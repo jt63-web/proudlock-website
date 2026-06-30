@@ -1,9 +1,7 @@
 "use client";
 
-import { useInView, motion } from "framer-motion";
-import { useRef } from "react";
+import { motion } from "framer-motion";
 import { AnimateIn } from "./AnimateIn";
-import { Eyebrow } from "@/components/ui/Eyebrow";
 
 interface Stat {
   readonly value: string;

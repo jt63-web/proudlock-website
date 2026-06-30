@@ -10,10 +10,7 @@ const schema = z.object({
   message: z.string().min(20),
 });
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 const TO_EMAIL = "cris@proudlock.com.au";
-const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
 const projectTypeLabel: Record<string, string> = {
   commercial: "Commercial Construction",
@@ -27,6 +24,9 @@ export async function POST(request: Request) {
   try {
     const body = await request.json();
     const data = schema.parse(body);
+
+    const resend = new Resend(process.env.RESEND_API_KEY);
+    const FROM_EMAIL = process.env.RESEND_FROM_EMAIL ?? "onboarding@resend.dev";
 
     const { error } = await resend.emails.send({
       from: `Proudlock Website <${FROM_EMAIL}>`,
