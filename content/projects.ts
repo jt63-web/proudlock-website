@@ -291,7 +291,7 @@ export const projects: Project[] = [
       { label: "Sector", value: "Residential / Commercial" },
     ],
     coverImage: "/images/projects/interior-design/1.jpg",
-    images: Array.from({ length: 8 }, (_, i) => `/images/projects/interior-design/${i + 1}.jpg`),
+    images: Array.from({ length: 25 }, (_, i) => `/images/projects/interior-design/${i + 1}.jpg`),
     featured: false,
   },
 ];
