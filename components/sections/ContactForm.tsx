@@ -40,7 +40,7 @@ export function ContactForm() {
       if (!res.ok) throw new Error("Server error");
       setSubmitted(true);
     } catch {
-      setServerError("Something went wrong. Please email us directly at info@proudlock.com.au");
+      setServerError("Something went wrong. Please email us directly at cris@proudlock.com.au");
     }
   };
 

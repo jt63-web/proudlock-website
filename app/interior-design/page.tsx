@@ -50,8 +50,8 @@ export default function InteriorDesignPage() {
             </AnimateIn>
             <div className="flex flex-col gap-px bg-[#C4A96B]/20">
               {approach.map((item, i) => (
-                <AnimateIn key={item.title} delay={i * 0.07}>
-                  <div className="bg-[#F5F2EC] p-8">
+                <AnimateIn key={item.title} delay={i * 0.07} className="w-full">
+                  <div className="w-full bg-[#F5F2EC] p-8">
                     <h3 className="mb-2 font-heading text-lg font-bold text-[#0E0F11]">{item.title}</h3>
                     <p className="font-body text-sm leading-relaxed text-[#0E0F11]/60">{item.description}</p>
                   </div>
@@ -71,7 +71,7 @@ export default function InteriorDesignPage() {
           </AnimateIn>
           <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2 lg:grid-cols-3">
             {projects.map((project, i) => (
-              <AnimateIn key={project.slug} delay={i * 0.07}>
+              <AnimateIn key={project.slug} delay={i * 0.07} className="h-full">
                 <ProjectCard project={project} />
               </AnimateIn>
             ))}

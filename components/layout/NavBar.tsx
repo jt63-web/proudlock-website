@@ -130,10 +130,18 @@ export function NavBar() {
                 </motion.div>
               ))}
             </nav>
-            <div className="mt-12 border-t border-white/10 pt-8">
-              <p className="font-body text-sm text-white/40">4/6 Timms Court, Woodridge QLD 4114</p>
-              <p className="mt-0.5 font-body text-xs text-white/25">By appointment only</p>
-              <p className="mt-2 font-body text-sm text-white/40">cris@proudlock.com.au</p>
+            <div className="mt-12 border-t border-white/10 pt-8 flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
+              <div>
+                <p className="font-body text-sm text-white/40">4/6 Timms Court, Woodridge QLD 4114</p>
+                <p className="mt-0.5 font-body text-xs text-white/25">By appointment only</p>
+                <p className="mt-2 font-body text-sm text-white/40">cris@proudlock.com.au</p>
+              </div>
+              <Link
+                href="/contact"
+                className="self-start border border-[#C4A96B] px-6 py-3 font-heading text-xs font-semibold uppercase tracking-[0.15em] text-[#C4A96B]"
+              >
+                Get in touch
+              </Link>
             </div>
           </motion.div>
         )}

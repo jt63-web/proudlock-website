@@ -78,8 +78,8 @@ export default function AboutPage() {
           </AnimateIn>
           <div className="grid grid-cols-1 gap-px bg-[#C4A96B]/20 lg:grid-cols-3">
             {pillars.map((pillar, i) => (
-              <AnimateIn key={pillar.title} delay={i * 0.08}>
-                <div className="flex flex-col gap-4 bg-[#F5F2EC] p-10">
+              <AnimateIn key={pillar.title} delay={i * 0.08} className="h-full">
+                <div className="flex h-full flex-col gap-4 bg-[#F5F2EC] p-10">
                   <span className="font-heading text-[#C4A96B] text-4xl font-bold leading-none">
                     0{i + 1}
                   </span>

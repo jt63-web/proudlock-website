@@ -49,8 +49,8 @@ export default function ResidentialPage() {
           </AnimateIn>
           <div className="grid grid-cols-1 gap-px bg-[#C4A96B]/20 sm:grid-cols-2">
             {capabilities.map((cap, i) => (
-              <AnimateIn key={cap.title} delay={i * 0.06}>
-                <div className="bg-[#F5F2EC] p-10">
+              <AnimateIn key={cap.title} delay={i * 0.06} className="h-full">
+                <div className="h-full bg-[#F5F2EC] p-10">
                   <h3 className="mb-3 font-heading text-xl font-bold text-[#0E0F11]">{cap.title}</h3>
                   <p className="font-body text-sm leading-relaxed text-[#0E0F11]/60">{cap.description}</p>
                 </div>
@@ -90,7 +90,7 @@ export default function ResidentialPage() {
           </AnimateIn>
           <div className="grid grid-cols-1 gap-px bg-white/10 sm:grid-cols-2">
             {projects.map((project, i) => (
-              <AnimateIn key={project.slug} delay={i * 0.06}>
+              <AnimateIn key={project.slug} delay={i * 0.06} className="h-full">
                 <ProjectCard project={project} />
               </AnimateIn>
             ))}

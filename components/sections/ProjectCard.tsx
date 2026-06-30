@@ -35,10 +35,10 @@ export function ProjectCard({ project, className, priority }: ProjectCardProps) 
         />
 
         {/* Default gradient — fades out on hover */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/75 via-transparent to-transparent transition-opacity duration-400 group-hover:opacity-0" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0E0F11]/75 via-transparent to-transparent transition-opacity duration-[400ms] group-hover:opacity-0" />
 
         {/* Hover overlay — fades in */}
-        <div className="absolute inset-0 bg-[#0E0F11]/55 opacity-0 transition-opacity duration-400 group-hover:opacity-100" />
+        <div className="absolute inset-0 bg-[#0E0F11]/55 opacity-0 transition-opacity duration-[400ms] group-hover:opacity-100" />
 
         {/* Arrow icon — top right, appears on hover */}
         <div className="absolute right-5 top-5 flex h-9 w-9 items-center justify-center border border-[#C4A96B]/0 bg-[#C4A96B]/0 opacity-0 transition-all duration-300 group-hover:border-[#C4A96B]/60 group-hover:bg-[#C4A96B]/10 group-hover:opacity-100">
@@ -56,7 +56,7 @@ export function ProjectCard({ project, className, priority }: ProjectCardProps) 
       </div>
 
       {/* Hover label — slides up, invisible by default */}
-      <div className="absolute bottom-0 left-0 right-0 translate-y-3 p-6 opacity-0 transition-all duration-400 ease-out group-hover:translate-y-0 group-hover:opacity-100">
+      <div className="absolute bottom-0 left-0 right-0 translate-y-3 p-6 opacity-0 transition-all duration-[400ms] ease-out group-hover:translate-y-0 group-hover:opacity-100">
         <p className="mb-1.5 font-heading text-[11px] font-semibold uppercase tracking-[0.18em] text-[#C4A96B]">
           {sectorLabel[project.sector]} — {project.suburb}
         </p>
