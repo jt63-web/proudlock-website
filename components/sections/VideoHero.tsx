@@ -37,7 +37,7 @@ export function VideoHero() {
             className="mb-5 flex items-center gap-3 font-heading text-[10px] font-semibold uppercase tracking-[0.28em] text-[#C4A96B]"
           >
             <span className="block h-px w-6 bg-[#C4A96B]" />
-            Est. 2014 — Southeast Queensland
+            Est. 2014
           </motion.p>
 
           {/* Headline */}
