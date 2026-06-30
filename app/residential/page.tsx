@@ -34,7 +34,7 @@ export default function ResidentialPage() {
     <>
       <PageHero
         eyebrow="Residential Construction"
-        title="Homes built<br/>to endure."
+        title={<>Homes built<br />to endure.</>}
         subtitle="Custom homes, renovations, and residential projects across Southeast Queensland."
         image="/images/projects/custom-homes/1.jpg"
         imageAlt="Proudlock custom home construction"

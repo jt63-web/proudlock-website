@@ -2,11 +2,12 @@
 
 import { motion } from "framer-motion";
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { Eyebrow } from "@/components/ui/Eyebrow";
 
 interface PageHeroProps {
   eyebrow: string;
-  title: string;
+  title: ReactNode;
   subtitle?: string;
   image: string;
   imageAlt: string;

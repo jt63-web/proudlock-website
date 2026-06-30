@@ -27,7 +27,7 @@ export default function InteriorDesignPage() {
     <>
       <PageHero
         eyebrow="Interior Design & Architect"
-        title="Design that<br/>performs."
+        title={<>Design that<br />performs.</>}
         subtitle="Spaces that work as well as they look — commercial and residential interiors across SEQ."
         image="/images/projects/interior-design/1.jpg"
         imageAlt="Proudlock interior design"
