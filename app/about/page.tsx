@@ -60,7 +60,7 @@ export default function AboutPage() {
 
       {/* Image strip */}
       <div className="grid grid-cols-3 gap-px bg-[#C4A96B]/20">
-        {["/images/hero/warehouse-1.jpg", "/images/hero/warehouse-3.jpg", "/images/hero/warehouse-5.jpg"].map((src, i) => (
+        {["/images/hero/warehouse-1.jpg", "/images/about/warehouse-2.jpg", "/images/about/warehouse-3.jpg"].map((src, i) => (
           <div key={i} className="relative aspect-[3/2] overflow-hidden bg-[#0E0F11]">
             <Image src={src} alt="Proudlock project" fill sizes="33vw" className="object-cover opacity-80" />
           </div>
